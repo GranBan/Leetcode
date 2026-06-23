@@ -1,0 +1,53 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        // ListNode* curr = head;
+        // std::vector<int> seen;
+        // while (curr != nullptr) {
+        //     seen.push_back(curr->val);
+        //     curr = curr->next;
+        // }
+        // int l = 0;
+        // int r = seen.size() - 1;
+        // while (l < r) {
+        //     if (seen[l] != seen[r]) return false;
+        //     l++; r--;
+        // }
+        // return true;
+
+        // Part 1 - finding the middle.
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (fast != nullptr && fast->next != nullptr) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+
+        // Part 2 - reversing the second half.
+        ListNode* prev = nullptr;
+        ListNode* curr = slow;
+        while (curr != nullptr) {
+            auto saved = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = saved;
+        }
+        ListNode* curr2 = head;
+        // Part 3 - check palindrome using the 2 heads.
+        while (prev != nullptr) {
+            if (curr2->val != prev->val) return false;
+            curr2 = curr2->next; prev = prev->next;
+        }
+        return true;
+    }
+};
