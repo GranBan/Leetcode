@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        std::unordered_set<int> seen;
+        bool move = true;
+        while (move) {
+            int square_sum = 0;
+            for (int num = n; num > 0; num /= 10) {
+                square_sum += ((num%10) * (num%10));
+            }
+            if (square_sum == 1) {
+                return true;
+            }
+            n = square_sum;
+            if (seen.contains(square_sum)) {
+                move = false;
+                break;
+            } else {
+                seen.insert(square_sum);
+            }
+        }
+        return move;
+    }
+};
