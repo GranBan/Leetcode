@@ -1,0 +1,38 @@
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        std::map<char, std::string> pattern_s;
+        std::map<std::string, char> s_pattern;
+        std::vector<std::string> s_vect;
+        
+        std::string temp = "";
+        for (char c : s) {
+            if (c == ' ') {
+                s_vect.push_back(temp);
+                temp = "";
+            } else {
+                temp += c;
+            }
+        }
+        s_vect.push_back(temp);
+
+        if (pattern.size() != s_vect.size()) return false;
+
+        for (int i = 0; i < pattern.size(); ++i) {
+            if (pattern_s.contains(pattern[i]) && pattern_s[pattern[i]] != s_vect[i]) {
+                return false;
+            } else {
+                pattern_s[pattern[i]] = s_vect[i];
+            }
+        }
+
+        for (int i = 0; i < s_vect.size(); ++i) {
+            if (s_pattern.contains(s_vect[i]) && s_pattern[s_vect[i]] != pattern[i]) {
+                return false;
+            } else {
+                s_pattern[s_vect[i]] = pattern[i];
+            }
+        }
+        return true;
+    }
+};
