@@ -1,0 +1,44 @@
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        int rows = board.size();
+        int cols = board[0].size();
+        for (int i = 0; i < rows; ++i) {
+            std::unordered_set<char> set1;
+            for (int j = 0; j < cols; ++j) {
+                if (board[i][j] != '.' && set1.contains(board[i][j])) {
+                    return false;
+                } else {
+                    set1.insert(board[i][j]);
+                }
+            }
+        }
+
+        for (int i = 0; i < cols; ++i) {
+            std::unordered_set<char> set2;
+            for (int j = 0; j < rows; ++j) {
+                if (board[j][i] != '.' && set2.contains(board[j][i])) {
+                    return false;
+                } else {
+                    set2.insert(board[j][i]);
+                }
+            }
+        }
+
+        for (int boxrow = 0; boxrow < 3; ++boxrow) {
+            for (int boxcol = 0; boxcol < 3; ++boxcol) {
+                std::unordered_set<char> set3;
+                for (int i = 0; i < 3; ++i) {
+                    for (int j = 0; j < 3; ++j) {
+                        if (board[boxrow*3 + i][boxcol*3 + j] != '.' && set3.contains(board[boxrow*3 + i][boxcol*3 + j])) {
+                            return false;
+                        } else {
+                            set3.insert(board[boxrow*3 + i][boxcol*3 + j]);
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+};
