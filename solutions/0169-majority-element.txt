@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        // std::unordered_map<int, int> seen;
+
+        // for (int n : nums) {
+        //     if (seen.contains(n)) {
+        //         seen[n]++;
+        //     } else {
+        //         seen.insert({n, 1});
+        //     }
+        // }
+        // int maj = nums.size() / 2;
+
+        // for (auto [key, value] : seen) {
+        //     if (value > maj) {
+        //         return key;
+        //     }
+        // }
+        // return 0;
+
+        // Solving with a new method called - Boyer-Moore Voting Algorithm. This checks for every num and if it matches out candidate, count increases. If not, then count decreases. The num with the count not equal to 0 at the end wins and is the majority.
+        
+        int candidate = nums[0];
+        int count = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == candidate) count++;
+            else count--;
+            if (count == 0) {
+                candidate = nums[i];
+                count = 1;
+            }
+        }
+        return candidate;
+    }
+};
