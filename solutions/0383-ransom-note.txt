@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        std::array<int, 26> seen{0};
+        for (char c : magazine) {
+            seen[c - 'a']++;
+        }
+        for (char c : ransomNote) {
+            seen[c - 'a']--;
+        }
+        for (int seen1 : seen) {
+            if (seen1 < 0) return false;
+        }
+        return true;
+    }
+};
