@@ -1,0 +1,11 @@
+            int sum = val1 + val2 + rem;
+            rem = sum / 10;
+            ListNode* more = new ListNode(sum % 10);
+            tail->next = more;
+            tail = more;
+            if (curr1 != nullptr) curr1 = curr1->next;
+            if (curr2 != nullptr) curr2 = curr2->next;
+        }
+        return dummy->next;
+    }
+};
