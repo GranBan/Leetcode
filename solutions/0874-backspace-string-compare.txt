@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        std::string s_upd;
+        std::string t_upd;
+        int l = 0;
+        int r = 0;
+        while (l < s.size()) {
+            if (s[l] != '#') s_upd.push_back(s[l]);
+            if (s[l] == '#' && s_upd.size()>0) s_upd.pop_back();
+            l++;
+        }
+        while (r < t.size()) {
+            if (t[r] != '#') t_upd.push_back(t[r]);
+            if (t[r] == '#'  && t_upd.size()>0) t_upd.pop_back();
+            r++;
+        }
+        return s_upd == t_upd;
+    }
+};
