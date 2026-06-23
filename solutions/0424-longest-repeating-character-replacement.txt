@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        int l = 0;
+        std::array<int, 26> seen{0};
+        int max_ele_freq = *std::max_element(std::begin(seen), std::end(seen));
+        int max_length = 0;
+        for (int r = 0; r < (int)s.size(); r++) {
+            seen[s[r] - 'A']++;
+            max_ele_freq = std::max(max_ele_freq, seen[s[r] - 'A']);
+            while (((r-l+1) - max_ele_freq) > k) {
+                seen[s[l] - 'A']--;
+                l++;
+            }
+            max_length = std::max(max_length, r-l+1);
+        }
+        return max_length;
+    }
+};
