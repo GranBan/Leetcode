@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        //2 arrays, one for s one for t. Then make one map<int, int>, add those array values to map as key from s and remove for t. If any one of the values of any keys of the map is not zero then we return false otherwise true
+        std::map<char, int> map1;
+        std::map<char, int> map2;
+        for (int i = 0; i < s.size(); ++i) {
+            if (map1.contains(s[i]) && map1[s[i]] != t[i]) {
+                return false;
+            } else {
+                map1[s[i]] = t[i];
+            }
+        }
+        for (int i = 0; i < t.size(); ++i) {
+            if (map2.contains(t[i]) && map2[t[i]] != s[i]) {
+                return false;
+            } else {
+                map2[t[i]] = s[i];
+            }
+        }
+        return true;
+    }
+};
