@@ -1,0 +1,16 @@
+        while (fast != nullptr && fast->next != nullptr) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+
+        // Phase 2 - reversing the second half
+        ListNode* second = slow->next;
+        slow->next = nullptr;
+        ListNode* prev = nullptr;
+        while (second != nullptr) {
+            ListNode* saved = second->next;
+            second->next = prev;
+            prev = second;
+            second = saved;
+        }
+
