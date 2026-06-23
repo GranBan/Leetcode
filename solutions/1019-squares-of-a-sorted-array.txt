@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        std::vector<int> res(nums.size());
+        for (int i = 0; i < nums.size(); ++i) {
+            nums[i] = nums[i] * nums[i];
+        }
+        int l = 0;
+        int r = nums.size() - 1;
+        int k = res.size() - 1;
+        while (l <= r) {
+            if (nums[r] < nums[l]) {
+                res[k] = nums[l];
+                l++;
+                k--;
+            } else {
+                res[k] = nums[r];
+                r--;
+                k--;
+            }
+        }
+        return res;
+    }
+};
