@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        std::stack<int> sta;
+        std::vector<int> res;
+        std::map<int, int> seen;
+        for (int n : nums2) {
+            while (!sta.empty() && n > sta.top()) {
+                seen[sta.top()] = n;
+                sta.pop();
+            }
+            sta.push(n);
+        }
+        while (!sta.empty()) {
+            seen[sta.top()] = -1;
+            sta.pop();
+        }
+        for (int n : nums1) {
+            res.push_back(seen[n]);
+        }
+        return res;
+    }
+};
