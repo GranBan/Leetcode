@@ -1,0 +1,13 @@
+#include<set>
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        std::set<int> set1;
+
+        for(int& num : nums) {
+            if (set1.count(num)) return true;
+            set1.insert(num);
+        }
+        return false;
+    }
+};
