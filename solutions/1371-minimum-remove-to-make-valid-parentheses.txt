@@ -1,0 +1,30 @@
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        std::stack<int> sta;
+        std::vector<bool> indices(s.size(), false);
+        std::string res = "";
+        for (int i = 0; i < s.size(); i++) {
+            if (std::isalpha(s[i])) {
+                continue;
+            } else if (s[i] == '(') {
+                sta.push(i);
+            } else {
+                if (!sta.empty()) {
+                    sta.pop();
+                }
+                else {
+                    indices[i] = true;
+                }
+            }
+        }
+        while (!sta.empty()) {
+            indices[sta.top()] = true;
+            sta.pop();
+        }
+        for (int i = 0; i < s.size(); ++i) {
+            if (!indices[i]) res += s[i];
+        }
+        return res;
+    }
+};
