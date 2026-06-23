@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        std::unordered_set<int> set1;
+        for (int n : nums) {
+            set1.insert(n);
+        }
+        int start = *set1.begin();
+        int longest = 0;
+        for (int n : set1) {
+            if (!set1.contains(n-1)) {
+                int length = 1;
+                while (set1.contains(n + length)) {
+                    length++;
+                }
+                longest = max(longest, length);
+            }
+        }
+        return longest;
+    }
+};
