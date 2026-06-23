@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        std::unordered_map<int, int> seen;
+        std::unordered_set<int> seen_seen;
+        for (int n : arr) {
+            if (seen.contains(n)) {
+                seen[n]++;
+            } else {
+                seen.insert({n, 1});
+            }
+        }
+
+        for (auto [key, value] : seen) {
+            if (seen_seen.contains(value)) {
+                return false;
+            } else {
+                seen_seen.insert(value);
+            }
+        }
+        return true;
+    }
+};
