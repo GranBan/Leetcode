@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int r = s.size() - 1;
+        int l = 0;
+        while (l < r) {
+            while (!std::isalnum(s[l]) && l < r) l++;
+            while (!std::isalnum(s[r]) && r > l) r--;
+            if (std::tolower(s[l]) != std::tolower(s[r])) {
+                return false;
+            } else {
+                l++;
+                r--;
+            }
+        }
+        return true;
+    }
+};
