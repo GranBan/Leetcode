@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> asteroidCollision(vector<int>& asteroids) {
+        std::stack<int> s;
+        std::vector<int> res;
+        for (int i = 0; i < asteroids.size(); i++) {
+            bool destroyed = false;
+            while (!s.empty() && s.top() > 0 && asteroids[i] < 0) {
+                if (s.top() == (-asteroids[i])) {
+                    s.pop();
+                    destroyed = true;
+                    break;
+                } else if (s.top() > -asteroids[i]) {
+                    destroyed = true; break;
+                } else {
+                    s.pop();
+                }
+            }
+            if (!destroyed) s.push(asteroids[i]);
+        }
+        while (!s.empty()) {
+            res.push_back(s.top());
+            s.pop();
+        }
+        std::reverse(res.begin(), res.end());
+        return res;
+    }
+};
