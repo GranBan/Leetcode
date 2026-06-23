@@ -1,0 +1,21 @@
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        int l = 0;
+        int r = l + k - 1;
+        int first_sum = 0;
+        for (int i = 0; i < k; ++i) {
+            first_sum += nums[l + i];
+        }
+        double max_avg = static_cast<double>(first_sum) / k;
+
+        while (r < nums.size() - 1) {
+            first_sum -= nums[l];
+            first_sum += nums[r + 1];
+            l++; r++;
+            double avg = static_cast<double>(first_sum) / k;
+            max_avg = std::max(max_avg, avg);
+        }
+        return max_avg;
+    }
+};
