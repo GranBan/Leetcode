@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        // mapp = {{1, 4}, {2, 4}, {3, 2}};
+        // set = {2, 4, 4};
+        // take out 4 and 4.
+        // find which keys have values equal to these 2.
+
+        std::map<int, int> mapp;
+        std::map<int, std::vector<int>> map2;
+        for (int num : nums) {
+            mapp[num]++;
+        }
+        for (auto [key, value] : mapp) {
+            map2[value].push_back(key);
+        }
+        std::vector<int> result;
+        auto it = map2.rbegin();
+        for (int i = 0; i < k; ++i) {
+            result.insert(result.end(), it->second.begin(), it->second.end());
+            it++;
+            if (result.size() == k) break;
+        }
+        return result;
+    }
+};
