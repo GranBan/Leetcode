@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int l = 0;
+        int max_len = 0;
+        std::unordered_set<char> seen;
+        for (int r = 0; r < s.size(); r++) {
+            while (seen.contains(s[r])) {
+                seen.erase(s[l]);
+                l++;
+            }
+            seen.insert(s[r]);
+            max_len = std::max(max_len, r-l+1);
+        }
+        return max_len;
+    }
+};
