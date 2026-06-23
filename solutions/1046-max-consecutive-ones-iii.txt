@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int l = 0;
+        int num_zero = 0;
+        int max_len = 0;
+        for (int r = 0; r < nums.size(); r++) {
+            if (nums[r] == 0) num_zero++;
+            while (num_zero > k) {
+                if (nums[l] == 0) num_zero--;
+                l++;
+            }
+            max_len = std::max(max_len, r-l+1);
+        }
+        return max_len;
+    }
+};
