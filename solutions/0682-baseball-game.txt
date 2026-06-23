@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int calPoints(vector<string>& operations) {
+        std::stack<int> sta;
+        int sum = 0;
+        for (int i = 0; i < operations.size(); i++) {
+            if (operations[i] == "C") {
+                if (!sta.empty()) sta.pop();
+            } else if (operations[i] == "D") {
+                sta.push(2*sta.top());
+            } else if (operations[i] == "+") {
+                int top1 = sta.top(); sta.pop();
+                int top2 = sta.top();
+                sta.push(top1);
+                sta.push(top1 + top2);
+            } else {
+                sta.push(std::stoi(operations[i]));
+            }
+        }
+    
+        while (!sta.empty()) {
+            sum += sta.top();
+            sta.pop();
+        }
+        return sum;
+    }
+};
