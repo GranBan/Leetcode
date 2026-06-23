@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        int l = 0;
+        int r = l + s1.size();
+        std::array<int, 26> s1_arr{0};
+        std::array<int, 26> s2_arr{0};
+        for (char s : s1) {
+            s1_arr[s - 'a']++;
+        }
+        for (char s : s2.substr(l, r-l)) {
+            s2_arr[s - 'a']++;
+        }
+        while (r <= s2.size()) {
+            if (s2_arr == s1_arr) return true;
+            s2_arr[s2[l] - 'a']--;
+            if (r < s2.size()) s2_arr[s2[r] - 'a']++;
+            l++; r++;
+        }
+        return false;
+    }
+};
