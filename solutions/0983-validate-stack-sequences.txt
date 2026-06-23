@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        std::stack<int> s;
+        int r = 0;
+        for (int p : pushed) {
+            s.push(p);
+            while (!s.empty() && s.top() == popped[r]) {
+                r++;
+                s.pop();
+                continue;
+            }
+        }
+        return s.empty();
+    }
+};
