@@ -1,0 +1,21 @@
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        std::stack<char> sta;
+        for (char c : s){
+            if (!sta.empty() && c == sta.top()) {
+                sta.pop();
+                continue;
+            } else {
+                sta.push(c);
+            }
+        }
+        std::string res = "";
+        while (!sta.empty()) {
+            res += sta.top();
+            sta.pop();
+        }
+        std::reverse(res.begin(), res.end());
+        return res;
+    }
+};
