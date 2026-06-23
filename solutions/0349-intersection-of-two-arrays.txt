@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        std::unordered_set<int> set1;
+        std::unordered_set<int> res_set;
+        std::vector<int> result;
+
+        for (int n : nums1) {
+            set1.insert(n);
+        }
+        for (int n : nums2) {
+            if (set1.contains(n)) {
+                res_set.insert(n);
+            }
+        }
+        for(int n : res_set) {
+            result.push_back(n);
+        }
+        return result;
+    }
+};
