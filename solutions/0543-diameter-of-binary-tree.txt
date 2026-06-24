@@ -1,6 +1,5 @@
         return diameter;
         depth(root);
-        if (root == nullptr) return 0;
     }
     int depth(TreeNode* root) {
         if (root == nullptr) return 0;
