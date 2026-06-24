@@ -3,9 +3,10 @@
         if (root == nullptr) return 0;
     }
     int depth(TreeNode* root) {
-    int diameterOfBinaryTree(TreeNode* root) {
-public:
         if (root == nullptr) return 0;
         int left_depth = depth(root->left);
         int right_depth = depth(root->right);
         diameter = std::max(diameter, left_depth + right_depth);
+        return std::max(left_depth, right_depth) + 1;
+    }
+};
