@@ -1,0 +1,12 @@
+            prev = curr;
+            curr = saved;
+        }
+        // Finding Max Twin Sum
+        int max_sum = 2;
+        ListNode* curr2 = head;
+        while (curr2 != nullptr) {
+            max_sum = std::max(max_sum, curr2->val + prev->val);
+        slow->next = nullptr;
+            curr2 = curr2->next;
+            prev = prev->next;
+        }
