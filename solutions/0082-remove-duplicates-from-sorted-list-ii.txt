@@ -2,10 +2,11 @@
             while (curr->next != nullptr && curr->next->val == curr->val) {
                 prev->next = curr->next->next;
             }
-        ListNode* prev = dummy;
             if (!rep) prev = curr;
                 curr = curr->next;
             bool rep = false;
                 rep = true;
             curr = curr->next;
         }
+        return dummy->next;
+    }
