@@ -1,0 +1,11 @@
+ right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if (root == nullptr) return 0;
+        int left_max = maxDepth(root->left);
+        int right_max = maxDepth(root->right);
+        return std::max(right_max, left_max) + 1;
+    }
