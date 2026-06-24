@@ -9,4 +9,3 @@
                 rep = true;
             curr = curr->next;
         }
-        return dummy->next;
