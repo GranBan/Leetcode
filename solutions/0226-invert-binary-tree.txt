@@ -1,0 +1,11 @@
+        TreeNode* saved = root->right;
+    }
+    TreeNode* invertTree(TreeNode* root) {
+        invertTree(root->right);
+        invertTree(root->left);
+        root->right = root->left;
+        root->left = saved;
+        if (root == nullptr) return nullptr;
+        return root;
+};
+public:
