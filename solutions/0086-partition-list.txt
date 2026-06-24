@@ -1,11 +1,10 @@
-            } else {
-                more_tail->next = curr;
-                more_tail = curr;
-                less_tail = curr;
-                less_tail->next = curr;
-            if (curr->val < x) {
-        while (curr != nullptr) {
-
-            }
-            curr = curr->next;
-        }
+ */
+ * };
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     int val;
+ *     ListNode *next;
+ * Definition for singly-linked list.
+ * struct ListNode {
+/**
