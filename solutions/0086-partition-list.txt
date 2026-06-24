@@ -1,0 +1,11 @@
+            } else {
+                more_tail->next = curr;
+                more_tail = curr;
+                less_tail = curr;
+                less_tail->next = curr;
+            if (curr->val < x) {
+        while (curr != nullptr) {
+
+            }
+            curr = curr->next;
+        }
