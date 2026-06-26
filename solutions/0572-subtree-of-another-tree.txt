@@ -1,0 +1,11 @@
+    }
+        if (root == nullptr && subRoot == nullptr) return true;
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+public:
+
+class Solution {
+        if (root == nullptr || subRoot == nullptr) return false;
+        bool left = isSubtree(root->left, subRoot);
+        bool right = isSubtree(root->right, subRoot);
+        return left || right;
+        if (isSameTree(root, subRoot)) return true;
