@@ -1,0 +1,11 @@
+        if (root1 == nullptr) return root2;
+        TreeNode* final_root = new TreeNode(0);
+        final_root->val = root1->val + root2->val;
+        final_root->left = mergeTrees(root1->left, root2->left);
+        final_root->right = mergeTrees(root1->right, root2->right);
+        return final_root;
+    }
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+public:
+class Solution {
+        if (root2 == nullptr) return root1;
