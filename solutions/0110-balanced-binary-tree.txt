@@ -1,11 +1,10 @@
-
-    int Height(TreeNode* root) {
+        int height = -1;
+        int left = Height(root->left);
+        int right = Height(root->right);
+        if (left == -1) return -1;
+        if (right == -1) return -1;
+        if (std::abs(left-right) > 1) return -1;
+        height = std::max(left, right) + 1;
+        return height;
     }
-        return false;
-        if (Height(root) != -1) return true;
-        if (root == nullptr) return true;
-    bool isBalanced(TreeNode* root) {
-public:
-        if (root == nullptr) return 0;
-class Solution {
- */
+};
