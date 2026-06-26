@@ -1,0 +1,11 @@
+
+    int Height(TreeNode* root) {
+    }
+        return false;
+        if (Height(root) != -1) return true;
+        if (root == nullptr) return true;
+    bool isBalanced(TreeNode* root) {
+public:
+        if (root == nullptr) return 0;
+class Solution {
+ */
