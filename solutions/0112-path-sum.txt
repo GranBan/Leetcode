@@ -1,0 +1,11 @@
+        if (root->left == nullptr && root->right == nullptr && targetSum - 
+        targetSum -= root->val;
+        bool left = hasPathSum(root->left, targetSum);
+        bool right = hasPathSum(root->right, targetSum);
+        if (root == nullptr) return false;
+        root->val == 0) return true;
+        return false;
+    }
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (left || right) return true;
+};
