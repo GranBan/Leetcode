@@ -4,8 +4,9 @@
         bool right = hasPathSum(root->right, targetSum);
         if (root == nullptr) return false;
         root->val == 0) return true;
-        return false;
-    }
     bool hasPathSum(TreeNode* root, int targetSum) {
+public:
+class Solution {
+ */
+ * };
         if (left || right) return true;
-};
