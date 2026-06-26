@@ -6,6 +6,6 @@
         root->val == 0) return true;
         if (left || right) return true;
         return false;
-    }
     bool hasPathSum(TreeNode* root, int targetSum) {
-};
+public:
+class Solution {
