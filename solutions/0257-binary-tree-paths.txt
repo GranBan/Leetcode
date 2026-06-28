@@ -2,10 +2,11 @@
 
         if (root == nullptr) return;
     }
-        return tree_res;
-        helper(root, "");
-        if (root == nullptr) return tree_res;
-    vector<string> binaryTreePaths(TreeNode* root) {
-public:
-    std::vector<std::string> tree_res;
-private:
+        str += std::to_string(root->val);
+        if (root->left == nullptr && root->right == nullptr) {
+            tree_res.push_back(str);
+            str = "";
+        } else {
+            str += "->";
+            helper(root->left, str);
+            helper(root->right, str);
