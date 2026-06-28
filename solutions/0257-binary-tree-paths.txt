@@ -1,12 +1,11 @@
-    void helper(TreeNode* root, std::string str) {
-
-        if (root == nullptr) return;
-    }
         str += std::to_string(root->val);
         if (root->left == nullptr && root->right == nullptr) {
             tree_res.push_back(str);
             str = "";
         } else {
             str += "->";
+        
             helper(root->left, str);
             helper(root->right, str);
+        }
+    }
