@@ -1,0 +1,11 @@
+                auto saved = seen.front();
+                seen.pop();
+                res_temp.push_back(saved->val);
+                if (saved->left != nullptr) seen.push(saved->left);
+            for (int i = 0; i < size; ++i) {
+            int size = seen.size();
+            std::vector<int> res_temp;
+        while (!seen.empty()) {
+        seen.push(root);
+        std::queue<TreeNode*> seen;
+                if (saved->right != nullptr) seen.push(saved->right);
