@@ -1,0 +1,11 @@
+            TreeNode* saved = nullptr;
+            int size = q.size();
+            for (int i = 0; i < size; ++i) {
+                q.pop();
+                if (saved->left) q.push(saved->left);
+        while (!q.empty()) {
+                saved = q.front();
+        q.push(root);
+        std::queue<TreeNode*> q;
+        std::vector<int> res;
+        if (root == nullptr) return {};
