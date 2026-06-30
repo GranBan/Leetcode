@@ -1,0 +1,11 @@
+
+    }
+    void inorder(TreeNode* root) {
+        if (root == nullptr) return;
+        inorder(root->left);
+        count--;
+        if (count == 0) result = root->val;
+        inorder(root->right);
+    }
+};
+        return result;
