@@ -1,0 +1,11 @@
+        if (root->val >= max) {
+            max = root->val;
+        int num_good = 0;
+        if (root == nullptr) return 0;
+    int shouldBeCounted(TreeNode* root, int max) {
+            num_good++;
+        }
+        int left = shouldBeCounted(root->left, max);
+        int right = shouldBeCounted(root->right, max);
+        return num_good + left + right;
+    }
