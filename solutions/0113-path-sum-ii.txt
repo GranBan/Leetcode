@@ -1,16 +1,15 @@
-        temp.push_back(root->val);
+    void pathSumBuilder(TreeNode* root, std::vector<int>& temp, int& target) {
         if (root == nullptr) return;
-    void pathBuilder(TreeNode* root, std::vector<int> temp, int target) {
-
-    }
-        if (root->left == nullptr && root ->right == nullptr && target - 
+        temp.push_back(root->val);
+        if (root->left == nullptr && root->right == nullptr && target - 
         root->val == 0) {
-        if (root == nullptr) return tree_res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        pathBuilder(root, {}, targetSum);
-public:
-    std::vector<int> temp_tree_res;
-    std::vector<std::vector<int>> tree_res;
-private:
             tree_res.push_back(temp);
-        return tree_res;
+        } else {
+            target -= root->val;
+            pathSumBuilder(root->left, temp, target);
+            pathSumBuilder(root->right, temp, target);
+            target += root->val;
+        }
+        temp.pop_back();
+    }
+};
