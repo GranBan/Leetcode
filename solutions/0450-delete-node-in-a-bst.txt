@@ -1,0 +1,12 @@
+                return root->left;
+            } else if (root->left == nullptr) {
+                return root->right;
+            } else {
+                TreeNode* saved = leastFinder(root->right);
+                root->val = saved->val;
+                root->right = deleteNode(root->right, saved->val);
+            }
+        }
+            if (root->right == nullptr) {
+        else {
+        else if (key < root->val) root->left = deleteNode(root->left, key);
