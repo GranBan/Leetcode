@@ -1,0 +1,14 @@
+                int x = pq.top();
+                pq.pop();
+
+                pq.pop();
+                int y = pq.top();
+            if (pq.size() > 1) {
+        while (!pq.empty()) {
+                pq.push(y-x);
+            }
+            else return pq.top();
+        }
+        return 0;
+    }
+};
