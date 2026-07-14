@@ -1,0 +1,13 @@
+    }
+
+    int helper(TreeNode* root) {
+        return result;
+        helper(root);
+    int maxPathSum(TreeNode* root) {
+    int result = INT_MIN;
+public:
+class Solution {
+        if (root == nullptr) return 0;
+        int left = helper(root->left);
+        int right = helper(root->right);
+        result = std::max(result, root->val + std::max(0, left) + std::max(0, right));
