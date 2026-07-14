@@ -1,0 +1,11 @@
+        if (root == nullptr) return 0;
+    std::map<long long, int>& mapp, int& result) {
+    int helper(TreeNode* root, long long currentSum, int targetSum, 
+
+    }
+        return helper(root, curr_sum, targetSum, seen, result);
+        currentSum += root->val;
+        if (mapp[currentSum - targetSum] > 0) {
+            result += mapp[currentSum - targetSum];
+        }
+        mapp[currentSum]++;
