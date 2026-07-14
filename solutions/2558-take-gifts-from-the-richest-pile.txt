@@ -1,0 +1,11 @@
+            int x = pq.top(); pq.pop();
+            x = static_cast<int>(std::sqrt(x));
+            pq.push(x);
+        }
+        while (!pq.empty()) {
+            sum += static_cast<long long>(pq.top());
+            pq.pop();
+        }
+        return sum;
+    }
+};
