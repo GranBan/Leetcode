@@ -1,0 +1,12 @@
+        int index = 0;
+        for (double dist : dists) {
+        }
+            dists.push_back(std::sqrt((point[0] * point[0]) + (point[1] * point[1])));
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        for (auto point : points) {
+    std::priority_queue<std::pair<double, int>> pq;
+    
+public:
+    std::vector<double> dists;
+    std::vector<std::vector<int>> res;
+class Solution {
