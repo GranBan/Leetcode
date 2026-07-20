@@ -1,0 +1,13 @@
+        }
+    }
+            small.push(large.top()); large.pop();
+        } else if (large.size() > small.size()) {
+            large.push(small.top()); small.pop();
+        if (small.size() > large.size() + 1) {
+        }
+            large.push(num);
+        } else {
+            small.push(num);
+        if (small.empty() || num <= small.top()) {
+    void addNum(int num) {
+    
