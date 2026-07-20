@@ -1,0 +1,13 @@
+    void follow(int followerId, int followeeId) {
+        follow_map[followerId].insert(followeeId);
+    }
+    
+    void unfollow(int followerId, int followeeId) {
+        follow_map[followerId].erase(followeeId);
+    }
+};
+
+/**
+ * Your Twitter object will be instantiated and called as such:
+ * Twitter* obj = new Twitter();
+    
