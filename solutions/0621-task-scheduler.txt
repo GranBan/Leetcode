@@ -1,0 +1,12 @@
+            max_freq = std::max(max_freq, freq);
+        }
+        for (const auto& [key, freq] : freq_of_tasks) {
+        for (const auto& [key, freq] : freq_of_tasks) {
+            if (freq == max_freq) num_max_freq++;
+        }
+        total_tasks = tasks.size();
+        return std::max(total_tasks, (max_freq - 1) * (n + 1) + num_max_freq);
+    }
+};
+        }
+            freq_of_tasks[task]++;
