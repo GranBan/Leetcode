@@ -1,0 +1,15 @@
+    }
+
+    int countWaterNeighbors(vector<vector<int>>& grid, int i, int j) {
+        int count = 0;
+        int dirs[][2] = {{-1,0}, {1,0}, {0,-1}, {0,1}};
+
+        for (auto dir : dirs) {
+            int ni = i + dir[0], nj = j + dir[1];
+            if (ni < 0 || ni >= grid.size() || nj < 0 || nj >= grid[0].size
+            () || grid[ni][nj] == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
