@@ -1,0 +1,14 @@
+        image[i][j] = color;
+        [i][j] != ogColor) return;
+        if (i < 0 || i >= image.size() || j < 0 || j >= image[0].size() || image
+    void dfs(vector<vector<int>>& image, int i, int j, int ogColor, int color) {
+        if (ogColor == color) return image;
+        dfs(image, sr, sc, ogColor, color);
+        return image;
+    }
+
+        int ogColor = image[sr][sc];
+    int color) {
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, 
+public:
+class Solution {
